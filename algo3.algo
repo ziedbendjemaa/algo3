@@ -1,0 +1,46 @@
+PROCEDURE dot_product (v1,v2:ARRAY_OF INTEGER,ps:INTEGER)
+VAR
+    i:INTEGER;
+    n=v1.length-1;
+    m=v2.length-1;
+    ps:=0;
+BEGIN
+    IF (n<>m) THEN
+        write ("give me 2 same length ")
+        RETURN ps =NaN;
+    END_IF
+    FOR i FROM 0 TO m STEP 1  DO
+        ps:=ps +(v1[i]*v2[i]);
+    END_FOR
+    RETURN ps;
+END
+FUNCTION dot_product2(v1,v2:ARRAY_OF INTEGER,ps:INTEGER) : INTEGER
+VAR
+    i:INTEGER;
+    n=v1.length-1;
+    m=v2.length-1;
+    ps:=0;
+BEGIN
+    IF (n<>m) THEN
+        write ("give me 2 same length ")
+        RETURN ps =NaN;
+    END_IF
+    FOR i FROM 0 TO m STEP 1  DO
+        ps:=ps +(v1[i]*v2[i]);
+    END_FOR
+    RETURN ps;
+END
+ALGORITHM product
+VAR
+ vectors : ARRAY_OF ARRAY;
+ i,j,ps:INTEGER;
+    
+BEGIN
+    FOR i FROM 0 TO vectors.length-2 STEP 1  DO
+        FOR j FROM i+1 TO vectors.length-1 STEP 1  DO
+            dot_product (vectors[i],vectors[j], ps)
+            IF(ps=0)THEN
+            write ("vectors:",vectors[i],"and vector",vectors[j] )
+        END_FOR
+    END_FOR
+END
